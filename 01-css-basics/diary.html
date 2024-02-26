@@ -14,6 +14,8 @@
 
         :root {
             --default-padding: 0.25rem;
+            font-family: sans-serif;
+            --default-border-radius: 7px ;
         }
 
         .button-bar {
@@ -42,6 +44,12 @@
             content: url(./placeholder.svg);
         }
 
+        img.round.placeholder {
+            width: 24px;
+            content: url(./placeholder.svg);
+            border-radius: 50% ;
+        }
+
         .input {
             display: block flex;
             align-items: center;
@@ -49,10 +57,40 @@
             padding: var(--default-padding);
             background-color: gray;
             border: 1px solid lightgray;
+            border-bottom: 2px solid #fefefe;
+            color: #fefefe;
+            border-start-start-radius: var(--default-border-radius);
+            border-start-end-radius: var(--default-border-radius);
         }
 
         .input > form {
             flex: 1 1 auto;
+        }
+
+        @scope(.input){
+
+            label {
+                font-size: 50%;
+            }
+
+        }
+
+        .input input[type="text"] {
+            background-color: #2e2e2e;
+            border: none ;
+            color:  #fefefe;
+        }
+
+        .input input[type="text"]:activ {
+            outline:  none;
+            border: none;
+
+        }
+
+        .input input[type="text"]:focus {
+            outline:  none;
+            border: none;
+
         }
 
         .input > form > * {
@@ -61,15 +99,47 @@
         }
 
         .nutrition-container {
-            background-color: burlywood;
+            background-color: rgb(26, 25, 24);
             border: 1px solid black;
             padding: 1rem;
+            border-radius: 7px;
         }
 
         .nutrition-values {
             display: block flex;
             justify-content: space-between;
-            padding: 0.25rem 0.5rem;
+            
+        }
+
+        .nutrition-values > * {
+            padding: 0.2rem;
+            font-size: 77%;
+            margin-block-start: 10px;
+            
+        }
+
+        .calories > {
+            color: #2BB081;
+            background: #2BB08140 ;         /* Deckkraft 40% */
+            border-radius: 7px            
+        }
+        
+        .proteins > {
+            color: #6a77fa;
+            background: #6a77fa40 ;
+            border-radius: 7px            
+        }
+        
+        .carbohydrates > {
+            color: #2BB081;
+            background: #2BB08140 ;         /* Deckkraft 40% */
+            border-radius: 7px
+        }
+
+        .fat > {
+            color: #E81F53;
+            background: #E81F5340 ;         /* Deckkraft 40% */
+            border-radius: 7px
         }
 
         .nutrition-header {
@@ -77,9 +147,17 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-
+        
         .nutrition-header h1 {
+            margin: 0px ;
             margin-block-start: 0px;
+            color: #fbfbfb;
+        }
+        
+        .nutrition-header h2 {
+            margin: 0px ;
+            margin-block-start: 0px;
+            color: #fbfbfb;
         }
 
         .container {
@@ -104,14 +182,14 @@
         <section class="nutrition-container">
             <div class="nutrition-header">
                 <div>
-                    <h1>Schinkenbraten</h1>
-                    <h2>Angaben pro 100g</h2>
+                    <h2>Schinkenbraten</h2>
+                    <h1>Angaben pro 100g</h1>
                 </div>
                 <!-- Die Angabe 50 x 50 Pixel definiert die gerenderte Größe der SVG Graphik -->
                 <!-- Die ViewBox bestimmt den Ausschnitt der SVG, der gerendert werden soll. Linke obere Ecke + Breite + Höhe  -->
-                <svg id="pie-chart" 
-                    width="50px" height="50px" 
-                    viewBox="-15 -15 125 125"></svg>
+                <svg id="pie-chart"
+                        width="50px" height="50px"
+                        viewBox="-15 -15 125 125"></svg>
             </div>
             <div class="nutrition-values">
                 <span class="calories">104 kcal</span>
@@ -127,7 +205,7 @@
                 </label>
                 <input type="text" name="" id="amount">
             </form>
-            <img class="placeholder">
+            <img class="placeholder round">
         </section>
         <section class="button-bar">
             <button class="image-button">
