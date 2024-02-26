@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./diagram.js" defer></script>
+    <title>SVG Basics</title>
+
+    <style>
+        svg {
+            background-color: coral;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Stimmt das Seitenverhältnis der ViewBox nicht mit dem Seitenverhältnis 
+    des SVG Elementes überein, wird die ViewBox im SVG Element zentriert dargestellt
+    und nicht gestreckt. -->
+    <svg id="graphic" width="250px" height="150px" viewBox="0 0 250 150">
+        <circle cx="50" cy="50" r="25" fill="green" stroke="black"/>
+        <rect x="50" y="50" width="250" 
+            height="150" stroke="black" fill="transparent"/>
+        
+    </svg>
+</body>
+</html>

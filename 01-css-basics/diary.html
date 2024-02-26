@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./diagram.js" defer></script>
+    <title>Ernährungstagebuch</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --default-padding: 0.25rem;
+        }
+
+        .button-bar {
+            display: block flex;
+            gap: 0.5rem;
+        }
+
+        .button-bar > * {
+            flex: 1 1 0;
+            margin: 0px;
+            padding: var(--default-padding);
+        }
+
+        .image-button {
+            display: block flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-button > img {
+            height: 24px;
+        }
+
+        img.placeholder {
+            width: 24px;
+            content: url(./placeholder.svg);
+        }
+
+        .input {
+            display: block flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: var(--default-padding);
+            background-color: gray;
+            border: 1px solid lightgray;
+        }
+
+        .input > form {
+            flex: 1 1 auto;
+        }
+
+        .input > form > * {
+            display: block;
+            width: 100%;
+        }
+
+        .nutrition-container {
+            background-color: burlywood;
+            border: 1px solid black;
+            padding: 1rem;
+        }
+
+        .nutrition-values {
+            display: block flex;
+            justify-content: space-between;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .nutrition-header {
+            display: block flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .nutrition-header h1 {
+            margin-block-start: 0px;
+        }
+
+        .container {
+            display: block flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 50vw;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <!-- <img src="placeholder.svg" alt=""> -->
+
+    <article class="container">
+        <section class="nutrition-container">
+            <div class="nutrition-header">
+                <div>
+                    <h1>Schinkenbraten</h1>
+                    <h2>Angaben pro 100g</h2>
+                </div>
+                <!-- Die Angabe 50 x 50 Pixel definiert die gerenderte Größe der SVG Graphik -->
+                <!-- Die ViewBox bestimmt den Ausschnitt der SVG, der gerendert werden soll. Linke obere Ecke + Breite + Höhe  -->
+                <svg id="pie-chart" 
+                    width="50px" height="50px" 
+                    viewBox="-15 -15 125 125"></svg>
+            </div>
+            <div class="nutrition-values">
+                <span class="calories">104 kcal</span>
+                <span class="proteins">20 g</span>
+                <span class="carbohydrates">1 g</span>
+                <span class="fat">2 g</span>
+            </div>
+        </section>
+        <section class="input">
+            <img class="placeholder">
+            <form action="">
+                <label for="amount">Amount / g
+                </label>
+                <input type="text" name="" id="amount">
+            </form>
+            <img class="placeholder">
+        </section>
+        <section class="button-bar">
+            <button class="image-button">
+                <img class="placeholder"> 50 kcal
+            </button>
+            <button class="image-button">
+                <img class="placeholder">
+                Back</button>
+        </section>
+    </article>
+
+    
+</body>
+</html>
