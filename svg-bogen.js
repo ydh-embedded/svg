@@ -18,7 +18,12 @@ function creatArcPath(startAngel , endAngel , radius, KreisX , KreisY){
     const endX          = endOffsetX + KreisX
     const endY          = endOffsetY + KreisY
 
-    let path            = `M ${startX} ${startY} A ${radius} ${radius} 0 0 1 ${endX} ${endY}`
+    const useLongArc    = (endAngel - startAngel ) >= 180 ? "1" : "0"
+    const drawClockwise = "1"
+
+    let path            = ` M ${startX} ${startY} A ${radius} ${radius} `
+                        + ` 0 ${useLongArc} ${drawClockwise} `
+                        + `   ${endX} ${endY}`
     return path
 }
 
@@ -26,12 +31,35 @@ function creatArcPath(startAngel , endAngel , radius, KreisX , KreisY){
 const grafik    = document.querySelector('#grafik')
 console.log('grafik');
 const arcPath   = createArcPath( 180,270,50,100,100)
-const path      = document.createElementNS("http://www.w3.org/2000/svg","path")
 
-path.setAttribute   (   "d"        , arcPath        )
-path.setAttribute   (   "stroke"   , "black"        )
 
-path.setAttribute   (   "fill"     , "transparent"  )
+const carbohydrates      = document.createElementNS("http://www.w3.org/2000/svg", "path")
 
-grafik.append(path)
+carbohydrates.setAttribute   (   "d"        , arcPath        )
+carbohydrates.setAttribute   (   "stroke"   , "black"        )
+carbohydrates.setAttribute   (   "stroke"   , "black"        )
+carbohydrates.setAttribute   (   "fill"     , "transparent"  )
+
+
+const fat      = document.createElementNS("http://www.w3.org/2000/svg", "path")
+
+fat.setAttribute            (   "d"        , arcPath        )
+fat.setAttribute            (   "stroke"   , "red"          )
+fat.setAttribute            (   "stroke"   , "red"          )
+fat.setAttribute            (   "fill"     , "transparent"  )
+
+
+const proteins      = document.createElementNS("http://www.w3.org/2000/svg", "path")
+
+proteins.setAttribute       (   "d"        , arcPath         )
+proteins.setAttribute       (   "stroke"   , "yellow"        )
+proteins.setAttribute       (   "stroke"   , "yellow"        )
+proteins.setAttribute       (   "fill"     , "transparent"   )
+
+
+
+grafik.append(carbohydrates , fat , proteins )
+
+console.log(grafik);
+
 
