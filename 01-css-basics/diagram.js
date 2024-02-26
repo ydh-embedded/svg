@@ -8,12 +8,12 @@ function radiansToDegrees(radians) {
 }
 
 function createArcPath(startAngle, endAngle, radius, circleX, circleY) {
-    const startRadians  = degreesToRadians(startAngle)
-    const endRadians    = degreesToRadians(endAngle)
-    const startOffsetX  = Math.cos(startRadians) * radius
-    const startOffsetY  = Math.sin(startRadians) * radius
-    const endOffsetX    = Math.cos(endRadians) * radius
-    const endOffsetY    = Math.sin(endRadians) * radius
+    const startRadians = degreesToRadians(startAngle)
+    const endRadians = degreesToRadians(endAngle)
+    const startOffsetX = Math.cos(startRadians) * radius
+    const startOffsetY = Math.sin(startRadians) * radius
+    const endOffsetX = Math.cos(endRadians) * radius
+    const endOffsetY = Math.sin(endRadians) * radius
 
     const startX = startOffsetX + circleX
     const startY = startOffsetY + circleY
@@ -23,8 +23,7 @@ function createArcPath(startAngle, endAngle, radius, circleX, circleY) {
     const useLongArc = (endAngle - startAngle) >= 180 ? "1" : "0"
     const drawClockwise = "1"
     let path = `M ${startX} ${startY} ` +
-               `A ${radius} ${radius} ` +
-               `0 ${useLongArc} ${drawClockwise} ${endX} ${endY}`
+               `A ${radius} ${radius} 0 ${useLongArc} ${drawClockwise} ${endX} ${endY}`
     return path
 }
 
